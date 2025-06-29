@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pirate Search</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #0f0;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      background-color: #222;
+      color: #0f0;
+      border: 1px solid #0f0;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pirate Bay Search</h1>
+  <input type="text" id="searchInput" placeholder="Search torrents..." />
+  <button onclick="search()">Search</button>
+
+  <script>
+    function search() {
+      const query = document.getElementById("searchInput").value.trim();
+      if (!query) return alert("Type something.");
+
+      const pirateURL = "https://thepiratebay.org/search/" + encodeURIComponent(query);
+      const shrinkEarnLink = "https://shrinkearn.com/st?api=YOUR_API_KEY&url=" + encodeURIComponent(pirateURL);
+      
+      window.location.href = shrinkEarnLink;
+    }
+  </script>
+</body>
+</html>
